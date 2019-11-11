@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAC,WAAW,CAAC;EACb,UAAU,EAAE,KAAK;CACpB;;AAED,AAAA,IAAI,CAAC;EACD,gBAAgB,EAAE,KAAK;CAC1B",
+    "sources": [
+        "linkshortner.scss"
+    ],
+    "names": [],
+    "file": "linkshortner.css"
+}
