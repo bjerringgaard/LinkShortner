@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Link Shortner</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <style>
         html, body {
@@ -102,6 +103,51 @@
             text-transform: uppercase;
         }
 
+        i{
+            color: #db0a5b;
+        }
+
+        @media screen and (max-width: 1000px)
+        {
+            .inputGroup {
+            flex-direction: column;
+            width: 95vw;
+            margin-bottom: 50px;
+        } 
+
+        input, .btn-submit {
+            flex-direction: column;
+            border-radius: 20px;
+            margin: 0 auto; 
+            align-content: center;
+            justify-content: center;
+        }
+
+        .btn-submit {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        th {
+            display: none;
+        }
+
+        td {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        tr{
+            display: table;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+
+        }
+
     </style>
 </head>
 <body>
@@ -140,10 +186,11 @@
                 </div>
                 <tbody>
                     @foreach($shortLinks as $row)
-                        <tr>
+                        <tr id="linkblock">
                             <td>{{ $row->id }}</td>
                             <td><a href="{{ route('shorten.link', $row->code) }}" target="_blank">{{ route('shorten.link', $row->code) }}</a></td>
                             <td>{{ $row->link }}</td>
+                            <td><a href ="/delete/{{ $row->id }}"><i class="fas fa-trash"></i></td>
                         </tr>
                     @endforeach
                 </tbody>
