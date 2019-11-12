@@ -7,20 +7,20 @@ use App\ShortLink;
 use Illuminate\Support\Str;
   
 class ShortLinkController extends Controller
-{ 
-    public function index() // Get Latest Link
+{   // Get Link Input
+    public function index() 
     {
         $shortLinks = ShortLink::latest()->get();
    
         return view('shortenLink', compact('shortLinks'));
     }
-     
-    public function store(Request $request) //When Requesting short link 
-    {
-        $request->validate([ //Validate link
+     //Store link 
+    public function store(Request $request) 
+    {   //Validate link
+        $request->validate([ 
            'link' => 'required|url'
         ]);
-        // Genarate string for link
+        // Genarate code for link
         $input['link'] = $request->link; 
         $input['code'] = Str::random(6); 
    
@@ -29,11 +29,11 @@ class ShortLinkController extends Controller
         return redirect('generate-shorten-link') // refresh, and add ->
              ->with('success', 'Short Link Generated Successfully!');
     }
-   
+   // code to redirect
     public function shortenLink($code) 
     {
-        $find = ShortLink::where('code', $code)->first(); //Find code, redirect to link
+        $find = ShortLink::where('code', $code)->first();
    
-        return redirect($find->link); // Return Link
+        return redirect($find->link);
     }   
 }
