@@ -16,6 +16,6 @@ class Controller extends BaseController
     function delete($id)
     {
         DB::table('short_links')->where('id', $id)->delete();
-        return redirect('generate-shorten-link');
+        return redirect('link-shortner');
     }
 }
