@@ -26,7 +26,7 @@ class ShortLinkController extends Controller
    
         ShortLink::create($input);
   
-        return redirect('link-shortner') // refresh, and add ->
+        return redirect('/') // refresh, and add ->
              ->with('success', 'Short Link Generated Successfully!');
     }
    // code to redirect

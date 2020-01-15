@@ -10,13 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
-Route::get('link-shortner', 'ShortLinkController@index');
-Route::post('link-shortner', 'ShortLinkController@store')->name('generate.shorten.link.post');
+Route::get('/', 'ShortLinkController@index');
+Route::post('/', 'ShortLinkController@store')->name('generate.shorten.link.post');
    
 Route::get('{code}', 'ShortLinkController@shortenLink')->name('shorten.link');
 
