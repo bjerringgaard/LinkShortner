@@ -12,7 +12,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-
+// Delete from DB
     function delete($id)
     {
         DB::table('short_links')->where('id', $id)->delete();

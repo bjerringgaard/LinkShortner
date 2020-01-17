@@ -21,7 +21,7 @@ class ShortLinkController extends Controller
            'link' => 'required|url'
         ]);
         // Genarate code for link
-        $input['link'] = $request->link; 
+        $input['link'] = $request->link;
         $input['code'] = Str::random(6); 
    
         ShortLink::create($input);
